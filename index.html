@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jewellery Shop Login</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 50px; }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    .error { color: red; }
+    #dashboard { display: none; }
+    #dashboard img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Form -->
+  <div class="container" id="login">
+    <h2>Login to Jewellery Shop</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="error-msg" class="error"></p>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div class="container" id="dashboard">
+    <h2>Welcome to Jora Jewellers!</h2>
+    <p>You are successfully logged in.</p>
+    <img src="gold%20ring.jpeg" alt="Gold Ring Design" />
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable Ctrl+U, F12, Ctrl+Shift+I
+    document.onkeydown = function(e) {
+      if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) return false;
+      if (e.key === 'F12') return false;
+      if (e.ctrlKey && e.shiftKey && e.key === 'I') return false;
+    };
+
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === "Jora Jewellers" && pass === "Manoj@320") {
+        document.getElementById('login').style.display = "none";
+        document.getElementById('dashboard').style.display = "block";
+      } else {
+        document.getElementById('error-msg').innerText = "Invalid username or password!";
+      }
+    }
+
+    function logout() {
+      document.getElementById('login').style.display = "block";
+      document.getElementById('dashboard').style.display = "none";
+      document.getElementById('username').value = "";
+      document.getElementById('password').value = "";
+      document.getElementById('error-msg').innerText = "";
+    }
+  </script>
+
+</body>
+</html>
+
