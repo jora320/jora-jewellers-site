@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Jora Jewellers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      background: #222;
+      color: white;
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 12px;
+      margin-bottom: 20px;
+      color: #aaf;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .social-login {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .social-btn {
+      flex: 1;
+      background: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      gap: 5px;
+    }
+
+    #gallery {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="loginBox">
+    <h1>Welcome to Jora Jewellers</h1>
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Sabir Bugti" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" />
+
+    <div class="forgot">Forgot Password?</div>
+    <button onclick="login()">Sign in</button>
+
+    <p style="text-align:center; margin: 10px 0; color: #aaa">Or login with</p>
+
+    <div class="social-login">
+      <div class="social-btn"><img src="images/google.png" width="18"> Google</div>
+      <div class="social-btn"><img src="images/apple.png" width="18"> Apple</div>
+    </div>
+  </div>
+
+  <div class="container" id="gallery">
+    <h1>Welcome to Jora Jewellers</h1>
+    <div class="gallery-title">Explore Our Jewellery Designs</div>
+    <div class="gallery">
+      <img src="images/gold-ring.jpeg" alt="Gold Ring">
+      <img src="images/payal-1.jpeg" alt="Payal 1">
+      <img src="images/payal-2.jpeg" alt="Payal 2">
+      <img src="images/payal-3.jpeg" alt="Payal 3">
+      <img src="images/payal-4.jpeg" alt="Payal 4">
+      <img src="images/payal-5.jpeg" alt="Payal 5">
+    </div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (email && password) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("gallery").style.display = "flex";
+      } else {
+        alert("Please enter both email and password!");
+      }
+    }
+
+    function logout() {
+      document.getElementById("gallery").style.display = "none";
+      document.getElementById("loginBox").style.display = "block";
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+    }
+  </script>
+</body>
+</html>
+
