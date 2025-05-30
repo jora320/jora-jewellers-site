@@ -52,6 +52,17 @@
     <img src="gold-ring.jpeg" alt="Gold Ring Design" />
     <button onclick="logout()">Logout</button>
   </div>
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Disable key shortcuts like Ctrl+U, F12, Ctrl+Shift+I
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) return false;
+    if (e.key === 'F12') return false;
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') return false;
+  };
+</script>
 
   <script>
     function login() {
