@@ -3,7 +3,11 @@
 <head>
   <title>Jewellery Shop Login</title>
   <style>
-    body { font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 50px; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 50px;
+    }
     .container {
       max-width: 400px;
       margin: auto;
@@ -49,19 +53,23 @@
   <div class="container" id="dashboard">
     <h2>Welcome to Jora Jewellers!</h2>
     <p>You are successfully logged in.</p>
-    <img src="gold%20ring.jpeg" alt="Gold Ring Design" />
+    <img src="gold-ring.jpeg" alt="Gold Ring Design" />
     <button onclick="logout()">Logout</button>
   </div>
 
+  <!-- Scripts -->
   <script>
     // Disable right-click
     document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Disable Ctrl+U, F12, Ctrl+Shift+I
+    // Disable shortcut keys like Ctrl+U, F12, Ctrl+Shift+I, etc.
     document.onkeydown = function(e) {
       if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) return false;
       if (e.key === 'F12') return false;
       if (e.ctrlKey && e.shiftKey && e.key === 'I') return false;
+      if (e.ctrlKey && (e.key === 's' || e.key === 'S')) return false;
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) return false;
+      if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) return false;
     };
 
     function login() {
@@ -87,4 +95,3 @@
 
 </body>
 </html>
-
