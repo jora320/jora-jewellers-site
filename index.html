@@ -31,10 +31,24 @@
     }
     .error { color: red; }
     #dashboard { display: none; }
-    #dashboard img {
-      width: 100%;
-      border-radius: 10px;
+    .gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
       margin-top: 20px;
+    }
+    .gallery img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -44,7 +58,7 @@
   <div class="container" id="login">
     <h2>Login to Jewellery Shop</h2>
     <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
+    <input type="password" id="password" placeholder="Password" autocomplete="off" />
     <button onclick="login()">Login</button>
     <p id="error-msg" class="error"></p>
   </div>
@@ -53,7 +67,14 @@
   <div class="container" id="dashboard">
     <h2>Welcome to Jora Jewellers!</h2>
     <p>You are successfully logged in.</p>
-    <img src="gold-ring.jpeg" alt="Gold Ring Design" />
+    <div class="gallery">
+      <img src="gold-ring.jpeg" alt="Gold Ring Design" />
+      <img src="payal-1.jpeg" alt="Payal Design 1" />
+      <img src="payal-2.jpeg" alt="Payal Design 2" />
+      <img src="payal-3.jpeg" alt="Payal Design 3" />
+      <img src="payal-4.jpeg" alt="Payal Design 4" />
+      <img src="payal-5.jpeg" alt="Payal Design 5" />
+    </div>
     <button onclick="logout()">Logout</button>
   </div>
 
